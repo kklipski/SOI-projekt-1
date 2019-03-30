@@ -28,9 +28,9 @@ Dodaj do systemu nowe wywołanie systemowe *GETPROCNR*, obsługiwane wewnątrz m
    
    W pliku */usr/src/mm/param.h* znajdują się definicje ułatwiające odwołania do elementów wyżej wymienionych struktur. Wartość zwracana przez naszą funkcję *do_getprocnr* umieszczana jest w strukturze *mm_out* automatycznie (w polu *m_type*). Zapoznaj się ze znaczeniem pola *mp_flags* struktury *[mproc](https://github.com/ssinghi/minix/blob/master/servers/pm/mproc.h)*, zwróć uwagę na flagę *IN_USE*.
 3. W pliku */usr/src/mm/table.c* w tablicy *call_vec* w odpowiednim miejscu wstawić adres (nazwę) funkcji *do_getprocnr*, zaś w pliku */usr/src/fs/table.c* w tym samym miejscu umieścić adres pusty funkcji, *no_sys*.
-4. Dokonać rekompilacji i przeładowania systemu Minix z nowym jądrem. Procedura ta ma różny przebieg w zależności od tego, czy ćwiczenie wykonywane jest w systemie Minix zainstalowanym na twardym dysku, w systemie Minix pracującym pod kontrolą emulatora Bochs, czy też wreszcie wykonywane jest w specjalnie przygotowanej dystrybucji systemu Minix w całości ładowanej do RAM-dysku. Poniżej zostanie opisany proces kompilacji nowego jądra w ostatniej z wymienionych konfiguracji.
+4. Dokonać rekompilacji i przeładowania systemu MINIX z nowym jądrem. Procedura ta ma różny przebieg w zależności od tego, czy ćwiczenie wykonywane jest w systemie MINIX zainstalowanym na twardym dysku, w systemie MINIX pracującym pod kontrolą emulatora Bochs, czy też wreszcie wykonywane jest w specjalnie przygotowanej dystrybucji systemu MINIX w całości ładowanej do RAM-dysku. Poniżej zostanie opisany proces kompilacji nowego jądra w ostatniej z wymienionych konfiguracji.
    
-   **Rekompilacja i restart systemu Minix w środowisku ze specjalną wersją systemu Minix ładującą się w całości do RAM-dysku**
+   **Rekompilacja i restart systemu MINIX w środowisku ze specjalną wersją systemu MINIX ładującą się w całości do RAM-dysku**
 	 1. Przejście do katalogu */usr/src/tools*.
    2. Zapoznanie się z akceptowalnymi zleceniami dla programu *make* (czyli z zawartością pliku *Makefile*) oraz z zawartością skryptu *mkboot*.
    3. Kompilacja nowego jądra wraz z utworzeniem dyskietki startowej z nowym jądrem:
@@ -38,7 +38,7 @@ Dodaj do systemu nowe wywołanie systemowe *GETPROCNR*, obsługiwane wewnątrz m
 	    $ make fdboot
       ```
       
-      (inne możliwości, m.in.: "make hdboot", sam "make" bez instalacji bloku ładującego).
+      (inne możliwości, m.in.: "make hdboot", sam "make", bez instalacji bloku ładującego).
    4. Bardzo ważnym krokiem, który należy wykonać najpóźniej w tym momencie, jest zachowanie na zewnętrznym nośniku wszelkich zmian w źródłach, dokonanych w celu wykonania ćwiczenia laboratoryjnego. Należy pamiętać, że po przeładowaniu systemu odtwarzana jest w pamięci RAM wersja systemu bez jakichkolwiek zmian wprowadzonych przez użytkownika.
    5. Po zachowaniu zmienionych wersji plików źródłowych należy wykonać restart systemu z wykorzystaniem utworzonego jądra:
 	    ```
@@ -64,7 +64,7 @@ wewnętrznie wykorzystującej *_syscall()* do uzyskania pozycji procesu w tablic
 #
 
 ### Dodatkowe informacje
-Powyższy tekst pochodzi z instrukcji do pierwszego ćwiczenia laboratoryjnego z przedmiotu Systemy operacyjne (I). Zawiera on m. in. treść zadania do wykonania. 
+Powyższy tekst pochodzi z instrukcji do pierwszego ćwiczenia laboratoryjnego z przedmiotu Systemy operacyjne (I). Zawiera on m.in. treść zadania do wykonania. 
 
 W głównym katalogu repozytorium znajduje się instrukcja instalacji systemu MINIX na Windowsie - [MINIX-Windows.pdf](MINIX-Windows.pdf).
 
